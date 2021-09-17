@@ -2,16 +2,23 @@ package veterinaria.models;
 
 public class Session {
 
-	//private Caja caja;
+	private Caja caja;
 	
 	private Almacen almacen;
 	
 	private GestionCliente gestionCliente;
+	
+	private GestionVenta gestionVenta;
 
 	public Session() {
-		//this.caja = new Caja();
+		this.caja = new Caja();
 		this.almacen = new Almacen();
 		this.gestionCliente = new GestionCliente();
+		this.gestionVenta = new GestionVenta();
+	}
+	
+	public void entradaCaja(double monto) {
+		this.caja.add(monto);
 	}
 
 	public void agregarProducto(int id, String descripcion, double precioUnitario, int stock) {
@@ -28,9 +35,17 @@ public class Session {
 	public String[][] listaProductos() {
 		return this.almacen.listaProductos();
 	}
+	
+	public double getPrecio(int id, int unidades) {
+		return this.almacen.getPrecio(id, unidades);
+	}
 
 	public boolean existProducto(int id) {
 		return this.almacen.exists(id);
+	}
+	
+	public void salidaAlmacen(int id, int unidades) {
+		this.almacen.remove(id, unidades);
 	}
 
 	public void modificarProducto(int id, String descripcion, double precioUnitario) {
@@ -55,5 +70,17 @@ public class Session {
 
 	public void modificarCliente(String dni, String nombres, String apellidoPaterno, String apellidoMaterno, char sexo) {
 		this.gestionCliente.modificarCliente(dni, nombres, apellidoPaterno, apellidoMaterno, sexo);
+	}
+
+	public boolean hayStock(int id, int unidades) {
+		return this.almacen.hayStock(id, unidades);
+	}
+	
+	public void agregarTicket(Ticket ticket) {
+		this.gestionVenta.agregarTicket(ticket);
+	}
+
+	public Ticket[] getTickets() {
+		return this.gestionVenta.getTickets();
 	}
 }

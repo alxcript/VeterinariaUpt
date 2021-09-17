@@ -29,6 +29,10 @@ public class Producto {
 		this.stock -= unidades;
 	}
 	
+	public boolean hayStock(int unidades) {
+		return this.stock >= unidades;
+	}
+	
 	public int getId() {
 		return this.id;
 	}
@@ -49,4 +53,6 @@ public class Producto {
 	public void setPrecioUnitario(double precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
+
+	
 }

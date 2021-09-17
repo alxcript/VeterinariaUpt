@@ -27,6 +27,7 @@ public class GestionMenu extends WithConsoleView {
 				this.clienteMenu.execute();
 				break;
 			case 3:
+				this.console.writeln("Aun no implementado..");
 				break;
 			case 4:
 				this.console.writeln("Programa terminado");
@@ -36,6 +37,7 @@ public class GestionMenu extends WithConsoleView {
 	}
 	
 	private int getOpcion() {
+		this.console.writeln();
 		this.console.writeln("============");
 		this.console.writeln("Menú Gestión");
 		this.console.writeln("============");

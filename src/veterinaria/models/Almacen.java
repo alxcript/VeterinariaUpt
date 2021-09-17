@@ -13,9 +13,10 @@ public class Almacen {
 	}
 	
 	private void llenarAlmacen() {
-		this.add(new Producto(1, "Producto 1", 15.50, 10));
-		this.add(new Producto(2, "Producto 2", 20, 10));
-		this.add(new Producto(3, "Producto 3", 70, 10));
+		this.add(new Producto(1, "GALLETAS DOG CHOW X 5K", 25.50, 300));
+		this.add(new Producto(2, "GALLETAS WHISKAS X 5K", 20.0, 200));
+		this.add(new Producto(3, "CASITA DE PERRO SCOOBY DOO STYLE", 150.0, 10));
+		this.add(new Producto(4, "PEZ SALTARIN DE PLASTICO PARA GATOS", 10.0, 40));
 	}
 	
 	public void add(Producto producto) {
@@ -30,8 +31,12 @@ public class Almacen {
 		this.productos.remove(codigo);
 	}
 	
-	public void remove(int id, int units) {
-		this.productos.get(id).remove(units);
+	public void remove(int id, int unidades) {
+		this.productos.get(id).remove(unidades);
+	}
+	
+	public double getPrecio(int id, int unidades) {
+		return this.productos.get(id).getPrecio(unidades);
 	}
 
 	public String[] buscarProductoPorId(int id) {
@@ -56,5 +61,9 @@ public class Almacen {
 		Producto producto = this.productos.get(id);
 		producto.setDescripcion(descripcion);
 		producto.setPrecioUnitario(precioUnitario);
+	}
+
+	public boolean hayStock(int id, int unidades) {
+		return this.productos.get(id).hayStock(unidades);
 	}
 }

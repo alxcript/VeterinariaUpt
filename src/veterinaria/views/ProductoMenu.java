@@ -39,6 +39,7 @@ public class ProductoMenu extends WithConsoleView {
 	}
 	
 	private int getOpcion() {
+		this.console.writeln();
 		this.console.writeln("=============");
 		this.console.writeln("Menú Producto");
 		this.console.writeln("=============");
@@ -49,5 +50,4 @@ public class ProductoMenu extends WithConsoleView {
 		this.console.writeln("5. Atras");
 		return LimitedIntDialog.instance().read("Opción?", 5);
 	}
-
 }

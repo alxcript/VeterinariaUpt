@@ -39,9 +39,10 @@ public class ClienteMenu extends WithConsoleView {
 	}
 	
 	private int getOpcion() {
-		this.console.writeln("****");
+		this.console.writeln();
+		this.console.writeln("============");
 		this.console.writeln("Menu Cliente");
-		this.console.writeln("****");
+		this.console.writeln("============");
 		this.console.writeln("1. Agregar cliente");
 		this.console.writeln("2. Buscar cliente");
 		this.console.writeln("3. Modificar cliente");

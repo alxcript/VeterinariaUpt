@@ -21,11 +21,12 @@ public class ProductoView extends WithConsoleView {
 			this.console.writeln("Producto agregado correctamente..");
 		}
 		else {
-			this.console.writeln("Ya existe un producto con ese código!!");
+			this.console.writeln("Ya existe un producto con ese Id!!");
 		}
 	}
 
 	public void buscarProductoPorId() {
+		this.listarProductos();
 		int id = this.console.readInt("Ingrese el id del producto buscado: ");
 		String[] producto = this.session.buscarProductoPorId(id);
 		if(producto != null) {
@@ -43,7 +44,7 @@ public class ProductoView extends WithConsoleView {
 		this.console.writeln();
 		this.console.writeln("LISTA DE PRODUCTOS");
 		this.console.writeln("------------------");
-		this.console.writeln("Codigo || Descripcion || Precio Unitario || Stock");
+		this.console.writeln("Id || Descripcion || Precio Unitario || Stock");
 		String[][] listaProductos = this.session.listaProductos();
 		for(String[] producto : listaProductos) {
 			this.console.writeln(producto[0] + " || " + producto[1] + " || " + producto[2] + " || " + producto[3]);
@@ -60,7 +61,7 @@ public class ProductoView extends WithConsoleView {
 			this.console.writeln("Producto modificado correctamente..");
 		}
 		else {
-			this.console.writeln("No existe un producto con ese código!!");
+			this.console.writeln("No existe un producto con ese Id!!");
 		}
 	}
 }

@@ -16,4 +16,17 @@ public class LineaVenta {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
+	public int getIdProducto() {
+		return idProducto;
+	}
+
+	public int getUnidades() {
+		return unidades;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+	
 }

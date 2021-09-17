@@ -6,14 +6,14 @@ public class View {
 
 	private Session session;
 	
-	private GestionView gestionView;
+	private MainMenu mainMenu;
 	
 	public View(Session session) {
 		this.session = session;
-		this.gestionView = new GestionView(this.session);
+		this.mainMenu = new MainMenu(this.session);
 	}
 
 	public void interact() {
-		this.gestionView.interact();
+		this.mainMenu.execute();
 	}
 }

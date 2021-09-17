@@ -15,7 +15,8 @@ public class GestionCliente {
 	private void llenarClientes() {
 		this.agregarCliente(new Cliente("71372246", "Alex", "Arhuata", "Turpo", 'M'));
 		this.agregarCliente(new Cliente("12345678", "Rene", "Poma", "Manchego", 'M'));
-		this.agregarCliente(new Cliente("87654321", "Laura", "Condori", "Salas", 'F'));
+		this.agregarCliente(new Cliente("87654321", "Laura", "Condori", "Ramirez", 'F'));
+		this.agregarCliente(new Cliente("14785236", "Jeackory Geilly", "Lima", "Ccosi", 'F'));
 	}
 
 	public void agregarCliente(Cliente cliente) {
