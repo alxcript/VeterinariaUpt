@@ -7,7 +7,7 @@ public class GestionVenta {
 
 	private Map<Integer, Ticket> tickets;
 	
-	private static int id;
+	public static int id;
 	
 	public GestionVenta() {
 		this.tickets = new HashMap<Integer, Ticket>();
@@ -15,7 +15,6 @@ public class GestionVenta {
 	}
 
 	public void agregarTicket(Ticket ticket) {
-		ticket.setId(GestionVenta.id);
 		this.tickets.put(ticket.getId(), ticket);
 		GestionVenta.id++;
 	}

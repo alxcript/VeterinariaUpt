@@ -13,6 +13,7 @@ public class GestionCliente {
 	}
 	
 	private void llenarClientes() {
+		this.agregarCliente(new Cliente("00000000", "(Clientes varios)", "", "", ' '));
 		this.agregarCliente(new Cliente("71372246", "Alex", "Arhuata", "Turpo", 'M'));
 		this.agregarCliente(new Cliente("12345678", "Rene", "Poma", "Manchego", 'M'));
 		this.agregarCliente(new Cliente("87654321", "Laura", "Condori", "Ramirez", 'F'));
@@ -51,5 +52,9 @@ public class GestionCliente {
 		cliente.setApellidoPaterno(apellidoPaterno);
 		cliente.setApellidoMaterno(apellidoMaterno);
 		cliente.setSexo(sexo);
+	}
+
+	public Cliente buscarCliente(String dni) {
+		return this.clientes.get(dni);
 	}
 }

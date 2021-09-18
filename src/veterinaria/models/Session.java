@@ -20,6 +20,14 @@ public class Session {
 	public void entradaCaja(double monto) {
 		this.caja.add(monto);
 	}
+	
+	public void grabarVenta(Ticket ticket) {
+		for(LineaVenta lineaVenta : ticket.getLines()) {
+			this.salidaAlmacen(lineaVenta.getIdProducto(), lineaVenta.getUnidades());
+			this.entradaCaja(lineaVenta.getPrecio());
+		}
+		this.agregarTicket(ticket);
+	}
 
 	public void agregarProducto(int id, String descripcion, double precioUnitario, int stock) {
 		this.almacen.add(new Producto(id, descripcion, precioUnitario, stock));
@@ -66,6 +74,10 @@ public class Session {
 
 	public String[] buscarClientePorDni(String dni) {
 		return this.gestionCliente.buscarClientePorDni(dni);
+	}
+	
+	public Cliente buscarCliente(String dni) {
+		return this.gestionCliente.buscarCliente(dni);
 	}
 
 	public void modificarCliente(String dni, String nombres, String apellidoPaterno, String apellidoMaterno, char sexo) {

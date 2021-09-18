@@ -1,7 +1,9 @@
 package veterinaria.views;
 
 import utils.WithConsoleView;
+import veterinaria.models.Cliente;
 import veterinaria.models.Session;
+import utils.YesNoDialog;
 
 public class ClienteView extends WithConsoleView {
 
@@ -67,6 +69,23 @@ public class ClienteView extends WithConsoleView {
 		else {
 			this.console.writeln("No existe el cliente buscado..");
 		}
+	}
+
+	public Cliente read() {
+		boolean ok = false;
+		Cliente cliente = this.session.buscarCliente("00000000");
+		do {
+			String dni = this.console.readDni("Ingrese el dni del cliente: ");
+			if(this.session.existCliente(dni)) {
+				cliente = this.session.buscarCliente(dni);
+				ok = true;
+			}
+			else {
+				this.console.writeln("No existe el cliente buscado..");
+				ok = !YesNoDialog.instance().read("desea asignar cliente");
+			}
+		} while(!ok);
+		return cliente;
 	}
 	
 }
