@@ -1,16 +1,14 @@
 package veterinaria.views;
 
 import veterinaria.models.Session;
+import veterinaria.views.menus.MainMenu;
 
 public class View {
 
-	private Session session;
-	
 	private MainMenu mainMenu;
 	
 	public View(Session session) {
-		this.session = session;
-		this.mainMenu = new MainMenu(this.session);
+		this.mainMenu = new MainMenu(session);
 	}
 
 	public void interact() {

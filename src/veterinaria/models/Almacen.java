@@ -66,4 +66,8 @@ public class Almacen {
 	public boolean hayStock(int id, int unidades) {
 		return this.productos.get(id).hayStock(unidades);
 	}
+
+	public Producto getProductoById(int id) {
+		return this.productos.get(id);
+	}
 }

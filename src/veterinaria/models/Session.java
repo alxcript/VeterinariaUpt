@@ -95,4 +95,12 @@ public class Session {
 	public Ticket[] getTickets() {
 		return this.gestionVenta.getTickets();
 	}
+
+	public Producto getProductoById(int id) {
+		return this.almacen.getProductoById(id);
+	}
+
+	public double getCapital() {
+		return this.caja.getCapital();
+	}
 }

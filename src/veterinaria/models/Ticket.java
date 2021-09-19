@@ -16,11 +16,12 @@ public class Ticket {
 	
 	private boolean closed;
 	
-	public Ticket() {
+	public Ticket(Cliente cliente) {
 		this.date = new Date();
 		this.lineas = new ArrayList<LineaVenta>();
 		this.closed = false;
 		this.id = GestionVenta.id;
+		this.cliente = cliente;
 	}
 	
 	public void agregarLineaVenta(LineaVenta linea) {
@@ -31,7 +32,7 @@ public class Ticket {
 		this.id = id;
 	}
 	
-	public void setDniCliente(Cliente cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
@@ -61,6 +62,14 @@ public class Ticket {
 
 	public Date getDate() {
 		return this.date;
+	}
+	
+	public String getDniCliente() {
+		return this.cliente.getDni();
+	}
+	
+	public String getClienteNombreCompleto() {
+		return this.cliente.getNombreCompleto();
 	}
 	
 }

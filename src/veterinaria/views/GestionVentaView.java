@@ -24,7 +24,7 @@ public class GestionVentaView extends WithConsoleView {
 			boolean deseaGrabar = YesNoDialog.instance().read("Desea grabar la venta");
 			if(deseaGrabar) {
 				Cliente cliente = new ClienteView(this.session).read();
-				ticket.setDniCliente(cliente);
+				ticket.setCliente(cliente);
 				this.session.grabarVenta(ticket);
 				this.console.writeln("Ticket guardado..");
 			}

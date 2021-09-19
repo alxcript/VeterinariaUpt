@@ -1,4 +1,4 @@
-package veterinaria.views;
+package veterinaria.views.menus;
 
 import utils.LimitedIntDialog;
 import utils.WithConsoleView;
@@ -29,9 +29,6 @@ public class GestionMenu extends WithConsoleView {
 			case 3:
 				this.console.writeln("Aun no implementado..");
 				break;
-			case 4:
-				this.console.writeln("Programa terminado");
-				break;
 			}
 		} while(opcion != 4);
 	}
@@ -44,7 +41,7 @@ public class GestionMenu extends WithConsoleView {
 		this.console.writeln("1. Producto");
 		this.console.writeln("2. Cliente");
 		this.console.writeln("3. Paciente");
-		this.console.writeln("4. Salir");
+		this.console.writeln("4. Atras");
 		return LimitedIntDialog.instance().read("Opción?", 4);
 	}
 

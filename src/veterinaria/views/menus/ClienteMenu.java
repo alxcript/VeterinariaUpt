@@ -1,8 +1,9 @@
-package veterinaria.views;
+package veterinaria.views.menus;
 
 import utils.LimitedIntDialog;
 import utils.WithConsoleView;
 import veterinaria.models.Session;
+import veterinaria.views.ClienteView;
 
 public class ClienteMenu extends WithConsoleView {
 

@@ -17,7 +17,7 @@ public class TicketView extends WithConsoleView {
 	}
 	
 	public Ticket read() {
-		Ticket ticket = new Ticket();
+		Ticket ticket = new Ticket(this.session.buscarCliente("00000000"));
 		do {
 			this.lineaVentaView.read(ticket);
 			this.writeln(ticket);
@@ -33,6 +33,7 @@ public class TicketView extends WithConsoleView {
 		this.console.writeln();
 		this.console.writeln("==================================================================");
 		this.console.writeln("Ticket id: " + ticket.getId() + " || Fecha y Hora: " + ticket.getDate());
+		this.console.writeln("Cliente id: " + ticket.getDniCliente() + " || Nombre Cliente: " + ticket.getClienteNombreCompleto());
 		this.console.writeln("==================================================================");
 		this.console.writeln("Id Producto || Descripcion \t\t|| Unidades || Precio");
 		this.console.writeln("------------------------------------------------");

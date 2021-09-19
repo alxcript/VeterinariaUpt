@@ -49,4 +49,8 @@ public class Cliente {
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
+
+	public String getNombreCompleto() {
+		return this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno;
+	}
 }
