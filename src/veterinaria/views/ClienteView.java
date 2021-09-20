@@ -82,7 +82,13 @@ public class ClienteView extends WithConsoleView {
 			}
 			else {
 				this.console.writeln("No existe el cliente buscado..");
-				ok = !YesNoDialog.instance().read("desea asignar cliente");
+				boolean crearCliente = YesNoDialog.instance().read("desea registrar cliente");
+				if(crearCliente) {
+					this.agregar();
+				}
+				else {
+					ok = !YesNoDialog.instance().read("desea asignar cliente");
+				}
 			}
 		} while(!ok);
 		return cliente;

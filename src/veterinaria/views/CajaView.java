@@ -12,6 +12,7 @@ public class CajaView extends WithConsoleView {
 	}
 	
 	public void writeln() {
+		this.console.writeln();
 		this.console.writeln("====");
 		this.console.writeln("CAJA");
 		this.console.writeln("====");

@@ -1,21 +1,24 @@
 package veterinaria.views.menus;
 
-import utils.LimitedIntDialog;
-import utils.WithConsoleView;
 import veterinaria.models.Session;
 
-public class GestionMenu extends WithConsoleView {
+public class GestionMenu extends Menu {
 
 	private ProductoMenu productoMenu;
 	
 	private ClienteMenu clienteMenu;
 	
+	private PacienteMenu pacienteMenu;
+
 	public GestionMenu(Session session) {
+		super("Gestión");
 		this.productoMenu = new ProductoMenu(session);
 		this.clienteMenu = new ClienteMenu(session);
+		this.pacienteMenu = new PacienteMenu(session);
 	}
-
-	public void execute() {
+	
+	@Override
+	protected void execute() {
 		int opcion;
 		do {
 			opcion = this.getOpcion();
@@ -27,22 +30,16 @@ public class GestionMenu extends WithConsoleView {
 				this.clienteMenu.execute();
 				break;
 			case 3:
-				this.console.writeln("Aun no implementado..");
+				this.pacienteMenu.execute();
 				break;
 			}
 		} while(opcion != 4);
 	}
-	
-	private int getOpcion() {
-		this.console.writeln();
-		this.console.writeln("============");
-		this.console.writeln("Menú Gestión");
-		this.console.writeln("============");
-		this.console.writeln("1. Producto");
-		this.console.writeln("2. Cliente");
-		this.console.writeln("3. Paciente");
-		this.console.writeln("4. Atras");
-		return LimitedIntDialog.instance().read("Opción?", 4);
+
+	@Override
+	protected String[] setOpciones() {
+		return new String[] { "Producto", "Cliente", "Paciente", "Atras" };
 	}
+
 
 }

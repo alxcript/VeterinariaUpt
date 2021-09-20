@@ -18,7 +18,7 @@ public class GestionVentaView extends WithConsoleView {
 	}
 
 	public void vender() {
-		new ProductoView(this.session).listarProductos();
+		
 		Ticket ticket = this.ticketView.read();
 		if(ticket.getLines().size() > 0) {
 			boolean deseaGrabar = YesNoDialog.instance().read("Desea grabar la venta");

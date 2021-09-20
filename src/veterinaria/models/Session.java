@@ -9,12 +9,24 @@ public class Session {
 	private GestionCliente gestionCliente;
 	
 	private GestionVenta gestionVenta;
+	
+	private GestionPaciente gestionPaciente;
 
 	public Session() {
 		this.caja = new Caja();
 		this.almacen = new Almacen();
 		this.gestionCliente = new GestionCliente();
 		this.gestionVenta = new GestionVenta();
+		this.gestionPaciente = new GestionPaciente();
+		this.llenarPacientes();
+	}
+	
+	public void agregarPaciente(int id, String nombre, String tipoAnimal, char sexo, Cliente cliente) {
+		this.gestionPaciente.agregar(id, nombre, tipoAnimal, sexo, cliente);
+	}
+	
+	public boolean existsPaciente(int id) {
+		return this.gestionPaciente.exist(id);
 	}
 	
 	public void entradaCaja(double monto) {
@@ -102,5 +114,22 @@ public class Session {
 
 	public double getCapital() {
 		return this.caja.getCapital();
+	}
+	
+	private void llenarPacientes() {
+		this.gestionPaciente.agregar(1, "Scooby", "PERRO", 'M', this.buscarCliente("71372246"));
+		this.gestionPaciente.agregar(2, "Rallitas", "GATO", 'F', this.buscarCliente("14785236"));
+	}
+
+	public Paciente buscarPacientePorId(int id) {
+		return this.gestionPaciente.buscarPorId(id);
+	}
+
+	public Paciente[] listaPacientes() {
+		return this.gestionPaciente.listar();
+	}
+
+	public void modificarPaciente(int id, String nombre, String tipoAnimal, char sexo, Cliente cliente) {
+		this.gestionPaciente.modificarPaciente(id, nombre, tipoAnimal, sexo, cliente);
 	}
 }

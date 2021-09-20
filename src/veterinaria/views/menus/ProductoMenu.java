@@ -1,22 +1,19 @@
 package veterinaria.views.menus;
 
-import utils.LimitedIntDialog;
-import utils.WithConsoleView;
 import veterinaria.models.Session;
 import veterinaria.views.ProductoView;
 
-public class ProductoMenu extends WithConsoleView {
+public class ProductoMenu extends Menu {
 
-	private Session session;
-	
 	private ProductoView productoView;
 	
 	public ProductoMenu(Session session) {
-		this.session = session;
-		this.productoView = new ProductoView(this.session);
+		super("Producto");
+		this.productoView = new ProductoView(session);
 	}
-
-	public void execute() {
+	
+	@Override
+	protected void execute() {
 		int opcion;
 		do {
 			opcion = this.getOpcion();
@@ -38,17 +35,12 @@ public class ProductoMenu extends WithConsoleView {
 			}
 		} while(opcion != 5);
 	}
-	
-	private int getOpcion() {
-		this.console.writeln();
-		this.console.writeln("=============");
-		this.console.writeln("Menú Producto");
-		this.console.writeln("=============");
-		this.console.writeln("1. Agregar producto");
-		this.console.writeln("2. Buscar producto");
-		this.console.writeln("3. Modificar producto");
-		this.console.writeln("4. Listar productos");
-		this.console.writeln("5. Atras");
-		return LimitedIntDialog.instance().read("Opción?", 5);
+
+
+	@Override
+	protected String[] setOpciones() {
+		return new String[] { "Agregar producto", "Buscar producto", "Modificar producto", "Listar productos", "Atras" };
 	}
+	
+	
 }
