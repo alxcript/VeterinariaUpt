@@ -7,6 +7,8 @@ public class MainMenu extends Menu {
 
 	private TiendaMenu tiendaMenu;
 	
+	private ClinicaMenu clinicaMenu;
+	
 	private GestionMenu gestionMenu;
 	
 	private ServiciosMenu serviciosMenu;
@@ -16,6 +18,7 @@ public class MainMenu extends Menu {
 	public MainMenu(Session session) {
 		super("Principal");
 		this.tiendaMenu = new TiendaMenu(session);
+		this.clinicaMenu = new ClinicaMenu(session);
 		this.serviciosMenu = new ServiciosMenu(session);
 		this.gestionMenu = new GestionMenu(session);
 		this.cajaView = new CajaView(session);
@@ -31,7 +34,7 @@ public class MainMenu extends Menu {
 				this.tiendaMenu.execute();
 				break;
 			case 2:
-				this.console.writeln("Aun no implementado..");
+				this.clinicaMenu.execute();
 				break;
 			case 3:
 				this.serviciosMenu.execute();

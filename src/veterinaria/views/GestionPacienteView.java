@@ -71,4 +71,14 @@ public class GestionPacienteView extends WithConsoleView {
 		}
 	}
 
+	public Paciente readPaciente() {
+		this.listarPacientes();
+		Paciente paciente = null;
+		int id = this.console.readInt("Ingrese el id del paciente a buscar: ");
+		if(this.session.existsPaciente(id)) {
+			paciente = this.session.buscarPacientePorId(id);
+		}
+		return paciente;
+	}
+
 }

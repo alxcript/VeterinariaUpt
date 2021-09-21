@@ -6,6 +6,8 @@ public class Session {
 	
 	private Almacen almacen;
 	
+	private GestionClinica gestionClinica;
+	
 	private GestionCliente gestionCliente;
 	
 	private GestionVenta gestionVenta;
@@ -15,6 +17,7 @@ public class Session {
 	public Session() {
 		this.caja = new Caja();
 		this.almacen = new Almacen();
+		this.gestionClinica = new GestionClinica();
 		this.gestionCliente = new GestionCliente();
 		this.gestionVenta = new GestionVenta();
 		this.gestionPaciente = new GestionPaciente();
@@ -131,5 +134,13 @@ public class Session {
 
 	public void modificarPaciente(int id, String nombre, String tipoAnimal, char sexo, Cliente cliente) {
 		this.gestionPaciente.modificarPaciente(id, nombre, tipoAnimal, sexo, cliente);
+	}
+
+	public HistoriaClinica getHistoriaClinica(Paciente paciente) {
+		return this.gestionClinica.getHistoriaClinica(paciente);
+	}
+
+	public void grabarHistoriaClinica(HistoriaClinica newHistoriaClinica) {
+		this.gestionClinica.agregarHistoriaClinica(newHistoriaClinica);
 	}
 }
